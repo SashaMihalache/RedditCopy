@@ -66,9 +66,10 @@
         <h1>Sasha's Reddit</h1>
     </div>
 
-    <span ng-show="post.author">
-         posted by <a>{{post.author}}</a> |
-    </span>
+    <!--<span ng-show="post.author">-->
+         <!--posted by <a>{{post.author}}</a> |-->
+    <!--</span>-->
+
     <!-- rest of template -->
 </script>
 
@@ -77,7 +78,8 @@
 
 <script type="text/ng-template" id="/posts.html">
     <div class="page-header">
-        <h3>
+
+        <h3 ng-show="isLoggedIn()">
             <a ng-show="post.link" href="{{post.link}}">
                 {{post.title}}
             </a>
@@ -112,9 +114,11 @@
 <!--register template-->
 
 <script type="text/ng-template" id="/register.html">
-    <div class="page-header">
+    <div class="page-header" ng-show="!isLoggedIn()">
         <h1>Sasha's Reddit</h1>
     </div>
+
+
 
     <div ng-show="error" class="alert alert-danger row">
         <span>{{ error.message }}</span>
@@ -144,7 +148,7 @@
 <!--login template-->
 
 <script type="text/ng-template" id="/login.html">
-    <div class="page-header">
+    <div class="page-header" ng-show="!isLoggedIn()">
         <h1>Sasha's Reddit</h1>
     </div>
 
